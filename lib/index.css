@@ -1,0 +1,383 @@
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background-color: #E1E0C7;
+}
+
+.year-line {
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 10px;
+    color: #F0EFE2;
+    background-color: #5D6146;
+    border-bottom: 1px solid #d7d5bc;
+}
+.year-line span{
+    font-size: 16px;
+    color:#fff;
+   position: absolute;
+   right:10px;
+   top:0px;
+}
+
+.item {
+    position: relative;
+    width: 88%;
+    border: 1px solid #d7d5bc;
+    box-shadow: 0 0 2px 2px #ccc;
+    padding: 10px 5px;
+    background-color: #F0EFE2;
+    margin: 0 auto 20px auto;
+}
+.item-img img{
+    width:100%;
+}
+
+
+
+.item .item-title {
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    color: #19537D;
+}
+
+.item .item-subtitle {
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    color: #65645F;
+}
+
+
+
+.item .item-img {
+    text-align: center;
+}
+
+.item .item-img img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto 20px auto;
+}
+
+
+.item .item-body {
+    font-size: 14px;
+    text-align: center;
+    line-height: 35px;
+    color: #0F0F0F;
+}
+
+.item .item-body .noreplaceitem {
+    text-align: center;
+    font-weight: 600;
+}
+
+.item .item-body p {
+    text-align: left;
+    text-indent: 30px;
+}
+.item .item-body div {
+    text-align: left;
+}
+
+.item .item-date {
+    width: 100%;
+    font-size: 14px;
+    color: #999;
+    text-align: right;
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+
+.item .item-index {
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: 10px;
+    text-align: right;
+    color: #999999;
+}
+
+.item .item-remark {
+    border-top: 1px solid #DAD9D1;
+    font-size: 14px;
+    padding: 10px 10px 0 25px;
+    min-height: 20px;
+    line-height: 20px;
+    color: #bfa123;
+    background: no-repeat 0 10px url('../img/icon_remark.png');
+    background-size: 20px 20px;
+}
+
+#total{
+    text-align: center;
+    line-height: 30px;
+    font-size:14px;
+}
+.authorWrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #F0EFE2;
+    text-align: center;
+}
+
+.authorWrapper .photo {
+    width: 200px;
+    border-radius: 100%;
+    margin: 0 auto;
+    border: solid 1px #ccc;
+    box-shadow: 0 0 5px 5px #fff;
+}
+
+.authorWrapper .nickname {
+    line-height: 50px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.authorWrapper .aboutus {
+    line-height: 35px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.authorWrapper .stampBox {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    text-align: center;
+
+}
+
+.authorWrapper .stampBox .stampimg {
+    width: 60px;
+}
+
+.authorWrapper .stampBox .stampname {
+    position: absolute;
+    top: 10px;
+    left: 23px;
+    font-size: 12px;
+    color: #fff;
+    font-family: '华文行楷';
+    /* transform: rotate(-10deg); */
+}
+
+/*播放按钮*/
+.payerBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+#playBox,
+#pauseBox {
+    width: 40px;
+    height: 40px;
+}
+
+#pauseBox {
+    display: none;
+    animation: circle 5s linear infinite;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*-------------------------*/
+#musicFly {
+    display: none;
+}
+
+.music-notes .note-item {
+    position: absolute;
+    top: 50;
+    left: 50%;
+    margin-left: -5px;
+    opacity: 0
+}
+
+.music-notes .note-item.item-1.animate {
+    font-size: 10px;
+    animation: note-animation 3s linear 0s infinite
+}
+
+.music-notes .note-item.item-2.animate {
+    font-size: 20px;
+    animation: note-animation 3s linear 1s infinite
+}
+
+.music-notes .note-item.item-3 {
+    font-size: 30px;
+    width: 5px
+}
+
+.music-notes .note-item.item-3.animate {
+    animation: note-animation 3s linear 2s infinite
+}
+
+/* 这里一个动画三个图片使用了*/
+@keyframes note-animation {
+    0% {
+        opacity: 0;
+        transform: translate3D(0, 0, 0)
+    }
+
+    15% {
+        opacity: .3;
+        transform: translate3D(10px, , 0) scale(1)
+    }
+
+    30% {
+        opacity: .5;
+        transform: translate3D(22px, 6px, 0) scale(1.1)
+    }
+
+    45% {
+        opacity: .7;
+        transform: translate3D(32px, 15px, 0) scale(1.3)
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3D(40px, 25px, 0) scale(1.4)
+    }
+
+    75% {
+        opacity: .7;
+        transform: translate3D(47px, 32px, 0) scale(1.5)
+    }
+
+    90% {
+        opacity: .3;
+        transform: translate3D(56px, 40px, 0) scale(1.8)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3D(65px, 50px, 0) scale(1.8)
+    }
+}
+
+/*目录*/
+.menu {
+    position: fixed;
+    bottom: 5px;
+    right: 0;
+    z-index: 1000;
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #E1E0C7;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 0 2px 2px #999;
+}
+
+#dialog {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d7d5bc;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#dialog #closeMenu {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    color: rgb(108, 17, 9);
+    border-radius: 100%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+}
+
+#dialog .menubody {
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#dialog .menu-year-line {
+    text-align: center;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+#dialog .menubody a {
+    font-size: 12px;
+    width: 95%;
+    margin: 0 auto;
+    display: block;
+    line-height: 25px;
+    color: #19537D;
+    position: relative;
+    padding-left: 20px;
+    border-bottom: dotted 1px #ccc;
+    text-decoration: none;
+
+}
+
+#dialog .menubody a .pageNum {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 12px;
+}
+
+.iconTop {
+    position: fixed;
+    bottom: 0;
+    left: 48%;
+    z-index: 1100;
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 25px;
+    background-color: #E1E0C7;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 2px 2px #999;
+    text-decoration: none;
+    color: #333 !important;
+
+}
+.cursor{
+    cursor: pointer;
+}
+#list-wrapper-2024-body,
+#list-wrapper-2023-body,
+#list-wrapper-2022-body,
+#list-wrapper-2021-body,
+#list-wrapper-2020-body
+{
+    display: none;
+}

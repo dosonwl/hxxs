@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .mybody {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: top;
+      flex-wrap: wrap;
+    }
+
+    .echart {
+      height:50vh;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+     border-bottom:solid 10px #ccc;
+    }
+  </style>
+</head>
+
+<body class="mybody">
+  <div id="chart_1" class="echart">
+  </div>
+  <div id="chart_2" class="echart">
+  </div>
+  <div id="chart_3" class="echart">
+  </div>
+  <div id="chart_4" class="echart">
+  </div>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    const xAxisData = [
+      '03月18日',
+      '03月19日',
+      '03月20日',
+      '03月21日',
+      '03月22日',
+      '03月22日',
+      '03月23日',
+      '03月24日',
+      '03月25日',
+      '03月26日',
+      '03月27日',
+      '03月28日',
+      '03月29日'
+    ];
+    //1、早空腹
+    const seriesData_1 = [
+      18.1,
+      7,
+      0,
+      5.2,
+      5.5,
+      4.3,
+      5,
+      5.3,
+      3.9,
+      4.3,
+      4.1,
+      4,
+      4.4
+    ];
+    //2、午空腹
+    const seriesData_2 = [
+      0,
+      8.9,
+      0,
+      9.8,
+      9.8,
+      0,
+      0,
+      0,
+      0,
+      9.4,
+      8.8,
+      6.2,
+      6.9
+    ];
+    //3、晚空腹
+    const seriesData_3 = [
+      0,
+      8.2,
+      7.6,
+      7.6,
+      0,
+      0,
+      0,
+      0,
+      6.7,
+      0,
+      0,
+      0,
+      0
+    ];
+    //4、晚22点
+    const seriesData_4 = [
+      16.8,
+      0,
+      0,
+      10,
+      10,
+      14.2,
+      0,
+      0,
+      0,
+      9.1,
+      14,
+      0,
+      0
+    ];
+
+    //-----------------1、早空腹-------------------------
+    var chart_1 = document.getElementById('chart_1');
+    var myChart_1 = echarts.init(chart_1, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var option_1 = creatEcharts('早空腹', xAxisData, seriesData_1);
+    if (option_1 && typeof option_1 === 'object') {
+      myChart_1.setOption(option_1);
+    }
+    window.addEventListener('resize', myChart_1.resize);
+    //-----------------2、午空腹-------------------------
+    var chart_2 = document.getElementById('chart_2');
+    var myChart_2 = echarts.init(chart_2, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var option_2 = creatEcharts('午空腹', xAxisData, seriesData_2);
+    if (option_2 && typeof option_2 === 'object') {
+      myChart_2.setOption(option_2);
+    }
+    window.addEventListener('resize', myChart_2.resize);
+    //-----------------3、晚空腹-------------------------
+    var chart_3 = document.getElementById('chart_3');
+    var myChart_3 = echarts.init(chart_3, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var option_3 = creatEcharts('晚空腹', xAxisData, seriesData_3);
+    if (option_3 && typeof option_3 === 'object') {
+      myChart_3.setOption(option_3);
+    }
+    window.addEventListener('resize', myChart_3.resize);
+    //-----------------4、晚22点-------------------------
+    var chart_4 = document.getElementById('chart_4');
+    var myChart_4 = echarts.init(chart_4, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+
+    var option_4 = creatEcharts('晚22点', xAxisData, seriesData_4);
+    if (option_4 && typeof option_4 === 'object') {
+      myChart_4.setOption(option_4);
+    }
+    window.addEventListener('resize', myChart_4.resize);
+
+    function creatEcharts(title, xAxisData, seriesData) {
+      var option = {
+        title: {
+          text: title,
+          left: 'center',
+          textStyle: {
+            fontSize: 32
+          }
+        },
+        tooltip: {
+          trigger: 'axis',
+          padding: 10,
+          backgroundColor: 'rgba(0,0,0,0.7)',
+          textStyle: {
+            fontSize: 60,
+            color: '#ccc'
+          }
+        },
+        dataZoom: [
+          {
+            bottom: 20,//下滑块距离x轴底部的距离
+            height: 50,//下滑块手柄的高度调节
+            type: 'slider',//类型,滑动块插件
+            show: true,//是否显示下滑块
+            xAxisIndex: [0],//选择的x轴
+            start: 0,//初始数据显示多少
+            end: 100//初始数据最多显示多少
+          }
+        ],
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '15%',
+          containLabel: true
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: xAxisData,
+          axisLabel: {
+            fontSize: 32,
+            rotate:45,
+            interval:0,
+            // formatter: function (params) {
+            //   var newParamsName = ''; // 拼接后的新字符串
+            //   var paramsNameNumber = params.length; // 实际标签数
+            //   var provideNumber = 3; // 每行显示的字数
+            //   var rowNumber = Math.ceil(paramsNameNumber / provideNumber); // 如需换回，算出要显示的行数
+
+            //   if (paramsNameNumber > provideNumber) {
+            //     /** 循环每一行,p表示行 */
+
+            //     for (var i = 0; i < rowNumber; i++) {
+            //       var tempStr = ''; // 每次截取的字符串
+            //       var start = i * provideNumber; // 截取位置开始
+            //       var end = start + provideNumber; // 截取位置结束
+
+            //       // 最后一行的需要单独处理
+
+            //       if (i == rowNumber - 1) {
+            //         tempStr = params.substring(start, paramsNameNumber);
+            //       } else {
+            //         tempStr = params.substring(start, end) + '\n';
+            //       }
+            //       newParamsName += tempStr;
+            //     }
+            //   } else {
+            //     newParamsName = params;
+            //   }
+
+            //   return newParamsName;
+            // }
+          }
+        },
+        yAxis: {
+          type: 'value',
+          axisLine: {
+            show: false
+          },
+          axisLabel: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: title,
+            type: 'line',
+            label: {
+              show: true,
+              position: 'top',
+              fontSize: 32,
+            },
+            data: seriesData
+          }
+        ]
+      };
+      return option
+    }
+
+  </script>
+</body>
+
+</html>
