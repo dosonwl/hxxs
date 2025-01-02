@@ -241,7 +241,7 @@ html {
 
     15% {
         opacity: .3;
-        transform: translate3D(10px, , 0) scale(1)
+        transform: translate3D(10px,0,  0) scale(1)
     }
 
     30% {
@@ -373,6 +373,7 @@ html {
 .cursor{
     cursor: pointer;
 }
+#list-wrapper-2025-body,
 #list-wrapper-2024-body,
 #list-wrapper-2023-body,
 #list-wrapper-2022-body,
