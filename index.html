@@ -38,6 +38,8 @@
         </div>
         <div id="total"></div>
     </div>
+    <div id="list-wrapper-2025-title" class="cursor"></div>
+    <div id="list-wrapper-2025-body"></div>
     <div id="list-wrapper-2024-title" class="cursor"></div>
     <div id="list-wrapper-2024-body"></div>
     <div id="list-wrapper-2023-title" class="cursor"></div>
@@ -48,6 +50,7 @@
     <div id="list-wrapper-2021-body"></div>
     <div id="list-wrapper-2020-title" class="cursor"></div>
     <div id="list-wrapper-2020-body"></div>
+
     <div class="menu" id="menu">目<br>录</div>
     <div id="dialog">
         <div id="closeMenu">x</div>
@@ -592,6 +595,14 @@
         });
 
         //展开折叠
+        $('#list-wrapper-2025-title').on('click', function () {
+            if ($('#list-wrapper-2025-title  span').text() == '(展开)') {
+                $('#list-wrapper-2025-title  span').text('(折叠)');
+            } else {
+                $('#list-wrapper-2025-title  span').text('(展开)');
+            }
+            $('#list-wrapper-2025-body').toggle();
+        });
         $('#list-wrapper-2024-title').on('click', function () {
             if ($('#list-wrapper-2024-title  span').text() == '(展开)') {
                 $('#list-wrapper-2024-title  span').text('(折叠)');
